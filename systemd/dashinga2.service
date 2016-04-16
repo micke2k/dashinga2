@@ -1,0 +1,18 @@
+[Unit]
+Description=Dashing Dashboard
+Before=systemd-user-sessions.service
+
+[Service]
+TimeoutStartSec=0
+
+ExecStart=/usr/share/dashinga2/run.sh
+WorkingDirectory=/usr/share/dashinga2
+Type=oneshot
+RemainAfterExit=yes
+User=root
+
+ExecStop=/usr/local/bin/thin stop
+User=root
+
+[Install]
+WantedBy=multi-user.target
