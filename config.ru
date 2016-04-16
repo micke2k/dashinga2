@@ -1,8 +1,8 @@
 require 'dashing'
 
 configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
-  set :default_dashboard, 'icinga2'
+  set :dashinga2, 'dashinga2'
+  set :default_dashboard, 'dashinga2'
 
   # icinga2 api config
   set :icinga2_api_url, 'https://localhost:5665'
