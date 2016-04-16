@@ -617,13 +617,20 @@ def get_oxidized()
   api_url_oxidized = $api_url_base_oxidized + "/oxidized/nodes/stats.json"
   rest_client = prepare_rest_client_oxidized(api_url_oxidized)
   headers = {"Content-Type" => "application/json", "Accept" => "application/json"}
-
   return rest_client.get(headers)
 end
 
 SCHEDULER.every '300s', allow_overlapping: false do
 
+#If we cant connect to the oxidized API send ERR to the dashboard
+begin
   oxidized_json = get_oxidized()
+rescue => e
+p "ERROR CANT CONNECT TO OXIDIZED API!"
+oxidized_rows = [{"label"=> "Devices","value"=> "Err"} , {"label"=> "Successful","value"=> "Err" } , {"label"=> "Failed Jobs","value"=> "Err" }] 
+send_event('oxidized', {  items: oxidized_rows } ) 
+end
+
   oxidized_result = JSON.parse(oxidized_json.body)
  
   
@@ -652,8 +659,11 @@ devices += 1
 	end
 end
 
-  
+
+	
+
 oxidized_rows = [{"label"=> "Devices","value"=> devices} , {"label"=> "Successful","value"=> success } , {"label"=> "Failed Jobs","value"=> fail }] 
+
 
 send_event('oxidized', {  items: oxidized_rows } ) 
 
