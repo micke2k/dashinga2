@@ -25,10 +25,11 @@ All contributions is welcome, see TODO if you cant think of anything.
 
 * Ruby, Gems and Bundler
 * Dashing Gem
-* Icinga 2 API (v2.4+)    
-*Optional:    
-*Oxidized   
-*Cacti with Weathermap Plugin   
+* Icinga 2 API (v2.4+)
+    
+* Optional:    
+* Oxidized   
+* Cacti with Weathermap Plugin   
 
 Gems:
 
