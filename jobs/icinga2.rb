@@ -20,13 +20,13 @@
 
 require 'rest_client'
 
-
+#Setting for Icinga2 API
+#Change $api_url_base, $apu_username and $api_password to match your settings
 
 $node_name = Socket.gethostbyname(Socket.gethostname).first
 if defined? settings.icinga2_api_nodename
   node_name = settings.icinga2_api_nodename
 end
-#$api_url_base = "https://192.168.99.100:4665"
 $api_url_base = "https://localhost:5665"
 if defined? settings.icinga2_api_url
   api_url_base = settings.icinga2_api_url
@@ -95,10 +95,8 @@ def get_hosts()
   return rest_client.get(headers)
 end
 
+#Icinga2 API widgets
 SCHEDULER.every '5s' , allow_overlapping: false do
-
-
-     
 
   total_critical = 0
   total_warning = 0
@@ -227,14 +225,17 @@ SCHEDULER.every '5s' , allow_overlapping: false do
 end
 
 
-SCHEDULER.every '10s', allow_overlapping: false do
 
- #Get Services with status Unknown, Warning or Critical
- #Example:
+
+
+# Icinga2 Service Table
+#Get Services with status Unknown, Warning or Critical
+#Example:
  
 =begin
 
-curl -k -s -u root:root 'https://localhost:5665/v1/objects/hosts?attrs=display_name&attrs=state&attrs=groups&attrs=last_state_change' |  python -m json.tool
+#curl -k -s -u root:root 'https://localhost:5665/v1/objects/hosts?attrs=display_name&attrs=state&attrs=groups&attrs=last_state_change' |  python -m json.tool
+
 {
     "results": [
         {
@@ -282,7 +283,9 @@ curl -k -s -u root:root 'https://localhost:5665/v1/objects/hosts?attrs=display_n
 
 
 =end
- 
+
+SCHEDULER.every '10s', allow_overlapping: false do
+
  #fetch and parse 'em
  serv = get_serv()
  data = JSON.parse(serv.body, :symbolize_names => true)
@@ -347,7 +350,7 @@ icinga2time.each do |key|
 	timei+=1
 end
 	
-	
+#Change state in to human readable values
 icinga2state2=Array.new	
 icinga2state.each do |key|
 	if key == 2.0
@@ -363,7 +366,7 @@ icinga2state.each do |key|
 end
 
 
-
+#Build columns to send to the Table
 rows = [
   { cols: [ {value: icinga2hosts[0]}, {value: icinga2services[0]}, {value: icinga2time2[0]}, {value: icinga2state2[0]} ]},
   { cols: [ {value: icinga2hosts[1]}, {value: icinga2services[1]}, {value: icinga2time2[1]}, {value: icinga2state2[1]} ]},
@@ -382,10 +385,11 @@ send_event('serviceproblems', {  rows: rows } )
 
 end
 
-SCHEDULER.every '10s' , allow_overlapping: false do
 
- #Get Hosts with status Down
- #Example:
+
+#Icinga2 Host Table
+#Get Hosts with status Down
+#Example:
  
 =begin
 
@@ -427,6 +431,10 @@ SCHEDULER.every '10s' , allow_overlapping: false do
 
 =end
  
+
+SCHEDULER.every '10s' , allow_overlapping: false do
+
+
  #fetch and parse 'em
  hostserv = get_hosts()
  hostdata = JSON.parse(hostserv.body, :symbolize_names => true)
@@ -502,7 +510,7 @@ icinga2hosttime.each do |key|
 	timei+=1
 end
 	
-	
+#Change state in to human readable values
 icinga2hoststate2=Array.new	
 icinga2hoststate.each do |key|
 	if key == 0.0
@@ -514,6 +522,8 @@ icinga2hoststate.each do |key|
 	end
 end
 
+
+#Build columns for Host table
 rows = [
   { cols: [ {value: icinga2hostname[0]}, {value: icinga2hostgroup[0]}, {value: icinga2hosttime2[0]}, {value: icinga2hoststate2[0]} ]},
   { cols: [ {value: icinga2hostname[1]}, {value: icinga2hostgroup[1]}, {value: icinga2hosttime2[1]}, {value: icinga2hoststate2[1]} ]},
@@ -533,13 +543,19 @@ send_event('hostproblems', {  rows: rows } )
 end
 
 
+#Cacti Weathermap
+#This sends a path to a webserver where the weathermap is located. Change it you match your need or to any picture.
 SCHEDULER.every '10.1s', allow_overlapping: false do
 
+#generates a random number which forces the browser to update the image
 random=rand(10000000)
 
 send_event('logo', {  image: "http://192.168.200.40/cacti/plugins/weathermap/output/11.png?" + random.to_s } ) 
 
 end
+
+
+
 
 #Oxidized
 =begin
@@ -602,6 +618,8 @@ curl -k -s -u root:root 'https://192.168.200.50/oxidized/nodes/stats.json' |  py
 
 =end
 
+#Change theses settings to match your webserver. It uses basic auth.
+
 $api_url_base_oxidized = "https://192.168.200.50"
 $api_username_oxidized = "admin"
 $api_password_oxidized = "Greenet1!"
@@ -620,6 +638,7 @@ def get_oxidized()
   return rest_client.get(headers)
 end
 
+#Oxidized Scheduler
 SCHEDULER.every '300s', allow_overlapping: false do
 
 #If we cant connect to the oxidized API send ERR to the dashboard
@@ -659,16 +678,10 @@ devices += 1
 	end
 end
 
-
-	
-
 oxidized_rows = [{"label"=> "Devices","value"=> devices} , {"label"=> "Successful","value"=> success } , {"label"=> "Failed Jobs","value"=> fail }] 
-
 
 send_event('oxidized', {  items: oxidized_rows } ) 
 
-
- 
  
 end #Scheduler end
  
