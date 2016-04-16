@@ -4,7 +4,7 @@ All credit for this great dashboard goes to the Icinga Team!
 
 Dashinga2 is optimized for 1920*1080 screen resolution.
 
-This dashing implementation uses the Icinga 2 API, Oxidized Api and Cacti-Weathermap plugin aswell as the cacti.log to display alerts on screen.
+This dashing implementation uses the Icinga 2 API, Oxidized API and Cacti-Weathermap-plugin as well as the cacti.log to display alerts on screen.
 
 Dashboard1:
 ![Dashing Icinga 2](public/dashinga2.png "Dashing Icinga 2")
