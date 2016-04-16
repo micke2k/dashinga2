@@ -4,13 +4,13 @@ All credit for this great dashboard goes to the Icinga Team!
 
 Dashinga2 is optimized for 1920*1080 screen resolution.
 
-[Dashing](http://shopify.github.io/dashing/) is a Sinatra based framework
-that lets you build beautiful dashboards.
+This dashing implementation uses the Icinga 2 API, Oxidized Api and Cacti-Weathermap plugin aswell as the cacti.log to display alerts on screen.
 
-This dashing implementation uses the Icinga 2 API
-to show basic alerts on your dashboard.
-
+Dashboard1:
 ![Dashing Icinga 2](public/dashinga2.png "Dashing Icinga 2")
+
+Dasboard2:
+![Dashing Icinga 2](public/dashinga2-weathermap.png "Dashing Icinga 2")
 
 # Contribute
 
@@ -26,6 +26,9 @@ All contributions is welcome, see TODO if you cant think of anything.
 * Ruby, Gems and Bundler
 * Dashing Gem
 * Icinga 2 API (v2.4+)
+ Optional:
+*Oxidized
+*Cacti with Weathermap Plugin
 
 Gems:
 
@@ -116,26 +119,5 @@ Navigate to [http://localhost:3030](http://localhost:3030)
 * Make widgets go grey if Icinga2 goes down.
 * Update the tables using batman/inline so they dont flash when updating.
 
-# Developer Hints
-
-## Dashing Installation
-
-    sudo gem install dashing
-    sudo gem install bundler
-
-    dashing new icinga2
-    cd icinga2
-    bundle
-
-    dashing start
-
-## Widgets
-
-    dashing generate widget table
-    dashing generate widget showmon
-
-## Jobs
-
-    dashing generate job icinga2
 
 
