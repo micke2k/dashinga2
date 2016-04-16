@@ -1,0 +1,82 @@
+---
+icinga-overview: |+
+  data: {"value":"2","color":"red","id":"icinga-overview","updatedAt":1460149989}
+
+icinga-version: |+
+  data: {"value":"v2.4.4","color":"blue","id":"icinga-version","updatedAt":1460149989}
+
+icinga-uptime: |+
+  data: {"value":"20:31:46","color":"blue","id":"icinga-uptime","updatedAt":1460149989}
+
+icinga-latency: |+
+  data: {"value":"0.0s","color":"blue","id":"icinga-latency","updatedAt":1460149989}
+
+icinga-execution-time: |+
+  data: {"value":"1.65","color":"blue","id":"icinga-execution-time","updatedAt":1460149989}
+
+icinga-host-down: |+
+  data: {"value":"0","color":"blue","id":"icinga-host-down","updatedAt":1460149989}
+
+icinga-service-critical: |+
+  data: {"value":"2","color":"red","id":"icinga-service-critical","updatedAt":1460149989}
+
+icinga-service-warning: |+
+  data: {"value":"0","color":"blue","id":"icinga-service-warning","updatedAt":1460149989}
+
+icinga-service-ack: |+
+  data: {"value":"0","color":"blue","id":"icinga-service-ack","updatedAt":1460149989}
+
+icinga-host-ack: |+
+  data: {"value":"0","color":"blue","id":"icinga-host-ack","updatedAt":1460149989}
+
+icinga-service-downtime: |+
+  data: {"value":"0","color":"orange","id":"icinga-service-downtime","updatedAt":1460149989}
+
+icinga-host-downtime: |+
+  data: {"value":"0","color":"orange","id":"icinga-host-downtime","updatedAt":1460149989}
+
+buzzwords: |+
+  data: {"items":[{"label":"Allowed","value":"24"},{"label":"Denied","value":"6"}],"id":"buzzwords","updatedAt":1460129640}
+
+convergence: |+
+  data: {"points":[{"x":17,"y":45},{"x":18,"y":14},{"x":19,"y":32},{"x":20,"y":27},{"x":21,"y":9},{"x":22,"y":44},{"x":23,"y":6},{"x":24,"y":47},{"x":25,"y":42},{"x":26,"y":0}],"id":"convergence","updatedAt":1460129178}
+
+valuation: |+
+  data: {"current":98,"last":24,"id":"valuation","updatedAt":1460129178}
+
+karma: |+
+  data: {"current":70026,"last":857,"id":"karma","updatedAt":1460129178}
+
+synergy: |+
+  data: {"value":95,"id":"synergy","updatedAt":1460129178}
+
+hostproblems: |+
+  data: {"rows":[{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]}],"id":"hostproblems","updatedAt":1460149984}
+
+serviceproblems: |+
+  data: {"rows":[{"cols":[{"value":"RTR1"},{"value":"check_interfaces"},{"value":"04:00:00"},{"value":"Critical"}]},{"cols":[{"value":"RTR2"},{"value":"check_interfaces"},{"value":"04:00:39"},{"value":"Critical"}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]},{"cols":[{"value":null},{"value":null},{"value":null},{"value":null}]}],"id":"serviceproblems","updatedAt":1460149984}
+
+logo: |+
+  data: {"image":"http://192.168.200.40/cacti/plugins/weathermap/output/11.png?6132024","id":"logo","updatedAt":1460149985}
+
+Image: |+
+  data: {"image":"rows","id":"Image","updatedAt":1460096726}
+
+list: |+
+  data: {"items":[{"label":"Allowed","value":"200000"},{"label":"Denied","value":"5"}],"id":"list","updatedAt":1460129069}
+
+List: |+
+  data: {"buzzwords":[{"label":"Allowed","value":"200000"},{"label":"Denied","value":"5"}],"id":"List","updatedAt":1460128567}
+
+ist: |+
+  data: {"buzzwords":[{"label":"Allowed","value":"200000"},{"label":"Denied","value":"5"}],"id":"ist","updatedAt":1460128601}
+
+oxidized: |+
+  data: {"items":[{"label":"Devices","value":3},{"label":"Successful","value":3},{"label":"Failed Jobs","value":2}],"id":"oxidized","updatedAt":1460149894}
+
+synergy3: |+
+  data: {"items":"04/16/2016 12:14:02 AM - SYSTEM STATS: Time:0.9399 Method:spine Processes:1 Threads:20 Hosts:2 HostsPerProcess:2 DataSources:1 RRDsProcessed:1\n\n","id":"synergy3","updatedAt":1460140788}
+
+cacti: |+
+  data: {"items":[{"label":"Last run","value":"12:15:02"},{"label":"Run time","value":10.4},{"label":"Hosts","value":"2"},{"label":"Datasources","value":"1"},{"label":"RRDs","value":"20"}],"id":"cacti","updatedAt":1460149954}
+
