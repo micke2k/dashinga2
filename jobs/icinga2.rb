@@ -377,8 +377,17 @@ rows = [
   { cols: [ {value: icinga2hosts[6]}, {value: icinga2services[6]}, {value: icinga2time2[6]}, {value: icinga2state2[6]} ]},
   { cols: [ {value: icinga2hosts[7]}, {value: icinga2services[7]}, {value: icinga2time2[7]}, {value: icinga2state2[7]} ]},
   { cols: [ {value: icinga2hosts[8]}, {value: icinga2services[8]}, {value: icinga2time2[8]}, {value: icinga2state2[8]} ]},
-  { cols: [ {value: icinga2hosts[9]}, {value: icinga2services[9]}, {value: icinga2time2[9]}, {value: icinga2state2[9]} ]}
- 
+  { cols: [ {value: icinga2hosts[9]}, {value: icinga2services[9]}, {value: icinga2time2[9]}, {value: icinga2state2[9]} ]},
+  { cols: [ {value: icinga2hosts[10]}, {value: icinga2services[10]}, {value: icinga2time2[10]}, {value: icinga2state2[10]} ]},
+  { cols: [ {value: icinga2hosts[11]}, {value: icinga2services[11]}, {value: icinga2time2[11]}, {value: icinga2state2[11]} ]},
+  { cols: [ {value: icinga2hosts[12]}, {value: icinga2services[12]}, {value: icinga2time2[12]}, {value: icinga2state2[12]} ]},
+  { cols: [ {value: icinga2hosts[13]}, {value: icinga2services[13]}, {value: icinga2time2[13]}, {value: icinga2state2[13]} ]},
+  { cols: [ {value: icinga2hosts[14]}, {value: icinga2services[14]}, {value: icinga2time2[14]}, {value: icinga2state2[14]} ]},
+  { cols: [ {value: icinga2hosts[15]}, {value: icinga2services[15]}, {value: icinga2time2[15]}, {value: icinga2state2[15]} ]},
+  { cols: [ {value: icinga2hosts[16]}, {value: icinga2services[16]}, {value: icinga2time2[16]}, {value: icinga2state2[16]} ]},
+  { cols: [ {value: icinga2hosts[17]}, {value: icinga2services[17]}, {value: icinga2time2[17]}, {value: icinga2state2[17]} ]},
+  { cols: [ {value: icinga2hosts[18]}, {value: icinga2services[18]}, {value: icinga2time2[18]}, {value: icinga2state2[18]} ]},
+  { cols: [ {value: icinga2hosts[19]}, {value: icinga2services[19]}, {value: icinga2time2[19]}, {value: icinga2state2[19]} ]}
 ]
 
 send_event('serviceproblems', {  rows: rows } ) 
@@ -534,7 +543,17 @@ rows = [
   { cols: [ {value: icinga2hostname[6]}, {value: icinga2hostgroup[6]}, {value: icinga2hosttime2[6]}, {value: icinga2hoststate2[6]} ]},
   { cols: [ {value: icinga2hostname[7]}, {value: icinga2hostgroup[7]}, {value: icinga2hosttime2[7]}, {value: icinga2hoststate2[7]} ]},
   { cols: [ {value: icinga2hostname[8]}, {value: icinga2hostgroup[8]}, {value: icinga2hosttime2[8]}, {value: icinga2hoststate2[8]} ]},
-  { cols: [ {value: icinga2hostname[9]}, {value: icinga2hostgroup[9]}, {value: icinga2hosttime2[9]}, {value: icinga2hoststate2[9]} ]}
+  { cols: [ {value: icinga2hostname[9]}, {value: icinga2hostgroup[9]}, {value: icinga2hosttime2[9]}, {value: icinga2hoststate2[9]} ]},
+  { cols: [ {value: icinga2hostname[10]}, {value: icinga2hostgroup[10]}, {value: icinga2hosttime2[10]}, {value: icinga2hoststate2[10]} ]},
+  { cols: [ {value: icinga2hostname[11]}, {value: icinga2hostgroup[11]}, {value: icinga2hosttime2[11]}, {value: icinga2hoststate2[11]} ]},
+  { cols: [ {value: icinga2hostname[12]}, {value: icinga2hostgroup[12]}, {value: icinga2hosttime2[12]}, {value: icinga2hoststate2[12]} ]},
+  { cols: [ {value: icinga2hostname[13]}, {value: icinga2hostgroup[13]}, {value: icinga2hosttime2[13]}, {value: icinga2hoststate2[13]} ]},
+  { cols: [ {value: icinga2hostname[14]}, {value: icinga2hostgroup[14]}, {value: icinga2hosttime2[14]}, {value: icinga2hoststate2[14]} ]},
+  { cols: [ {value: icinga2hostname[15]}, {value: icinga2hostgroup[15]}, {value: icinga2hosttime2[15]}, {value: icinga2hoststate2[15]} ]},
+  { cols: [ {value: icinga2hostname[16]}, {value: icinga2hostgroup[16]}, {value: icinga2hosttime2[16]}, {value: icinga2hoststate2[16]} ]},
+  { cols: [ {value: icinga2hostname[17]}, {value: icinga2hostgroup[17]}, {value: icinga2hosttime2[17]}, {value: icinga2hoststate2[17]} ]},
+  { cols: [ {value: icinga2hostname[18]}, {value: icinga2hostgroup[18]}, {value: icinga2hosttime2[18]}, {value: icinga2hoststate2[18]} ]},
+  { cols: [ {value: icinga2hostname[19]}, {value: icinga2hostgroup[19]}, {value: icinga2hosttime2[19]}, {value: icinga2hoststate2[19]} ]}
  
 ]
 
@@ -693,6 +712,7 @@ SCHEDULER.every '60s',allow_overlapping: false do
 
 #Open the file
 #The file should contain one line in this format(Taken from cacti.log) use bash to find and extract that single line.
+#Example of bash:  grep "SYSTEM STATS:" /var/www/html/cacti/log/cacti.log | tail -n 1 > /usr/share/dashinga2/cacti
 #04/16/2016 12:17:02 AM - SYSTEM STATS: Time:0.9396 Method:spine Processes:1 Threads:20 Hosts:2 HostsPerProcess:2 DataSources:0 RRDsProcessed:0
 
 file = File.open('/usr/share/dashinga2/cacti')
