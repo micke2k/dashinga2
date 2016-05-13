@@ -9,7 +9,7 @@ This dashing implementation uses the Icinga 2 API, Oxidized API and Cacti-Weathe
 Dashboard1:
 ![Dashing Icinga 2](public/dashinga2.png "Dashing Icinga 2")
 
-Dasboard2:
+Dashboard2:
 ![Dashing Icinga 2](public/dashinga2-weathermap.png "Dashing Icinga 2")
 
 # Contribute
