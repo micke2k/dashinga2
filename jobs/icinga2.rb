@@ -561,15 +561,31 @@ send_event('hostproblems', {  rows: rows } )
 
 end
 
+require 'socket'
+
+def local_ip
+  orig = Socket.do_not_reverse_lookup  
+  Socket.do_not_reverse_lookup =true # turn off reverse DNS resolution temporarily
+  UDPSocket.open do |s|
+    s.connect '8.8.8.8', 1 #google
+    s.addr.last
+  end
+ensure
+  Socket.do_not_reverse_lookup = orig
+end
+
+
+
 
 #Cacti Weathermap
 #This sends a path to a webserver where the weathermap is located. Change it you match your need or to any picture.
 SCHEDULER.every '10.1s', allow_overlapping: false do
 
+
 #generates a random number which forces the browser to update the image
 random=rand(10000000)
 
-send_event('logo', {  image: "http://192.168.200.40/cacti/plugins/weathermap/output/11.png?" + random.to_s } ) 
+send_event('logo', {  image: "https://" + local_ip.to_s + "/cacti/plugins/weathermap/output/1.png?" + random.to_s } ) 
 
 end
 
